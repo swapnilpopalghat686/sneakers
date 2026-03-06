@@ -19,14 +19,20 @@ const ProductDetails = () => {
   if (!product) return <h2>Loading...</h2>;
 
   return (
-    <div>
-      <h1>{product.name}</h1>
+    <div className="details-container">
 
-      <p>Price: ₹{product.price}</p>
+      <h1 className="details-title">{product.name}</h1>
 
-      <p>Category: {product.category}</p>
+      <p className="details-price">₹{product.price}</p>
 
-      <p>{product.description}</p>
+      <p className="details-category">
+        Category: {product.category}
+      </p>
+
+      <p className="details-description">
+        {product.description}
+      </p>
+
     </div>
   );
 };

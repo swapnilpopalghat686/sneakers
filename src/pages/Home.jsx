@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import API from "../services/api";
 import ProductCard from "../components/ProductCard";
 import SearchFilter from "../components/SearchFilter";
+// import "./home.css";
 
 const Home = () => {
   const [products, setProducts] = useState([]);
@@ -11,31 +12,17 @@ const Home = () => {
     setProducts(res.data.products);
   };
 
-  const handleSearch = async (filters) => {
-    const res = await API.get(
-      `/products/search?keyword=${filters.keyword}&category=${filters.category}`
-    );
-
-    setProducts(res.data.products);
-  };
-
   useEffect(() => {
     getProducts();
   }, []);
 
   return (
-    <div>
-      <h1>Products</h1>
+    <div className="container">
+      <h1 className="title">Sneakers Collection</h1>
 
-      <SearchFilter onSearch={handleSearch} />
+      <SearchFilter />
 
-      <div
-        style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(3,1fr)",
-          gap: "20px",
-        }}
-      >
+      <div className="grid-container">
         {products.map((product) => (
           <ProductCard key={product._id} product={product} />
         ))}

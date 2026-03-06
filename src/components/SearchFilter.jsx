@@ -14,7 +14,8 @@ const SearchFilter = ({ onSearch }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit} style={{ marginBottom: "20px" }}>
+    <form onSubmit={handleSubmit} className="search-form">
+
       <input
         type="text"
         placeholder="Search product..."
@@ -28,7 +29,10 @@ const SearchFilter = ({ onSearch }) => {
         <option value="shoes">Shoes</option>
       </select>
 
-      <button type="submit">Search</button>
+      <button type="submit" className="search-btn">
+        Search
+      </button>
+
     </form>
   );
 };
